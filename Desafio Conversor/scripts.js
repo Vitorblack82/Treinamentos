@@ -10,7 +10,7 @@ function convertValues() {
     const currencyValueConverted = document.querySelector(".currency-value-other")
     const dolarToday = 5.2
     const euroToday = 6.2
-    
+
 
     if (currencySelect.value == "dolar") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
@@ -35,13 +35,44 @@ function convertValues() {
         style: "currency",
         currency: "BRL"
     }).format(inputConvertValue)
+}
 
 
+function currencyChange() {
+
+    const currencyName = document.getElementById("currency-name")
+    const currencyImage = document.querySelector(".img-converted")
+
+    if (currencySelect.value == "dolar") {
+        currencyName.innerHTML = "Dólar"
+        currencyImage.src = "./assets/estados-unidos.png"
 
 
+    }
+
+    if (currencySelect.value == "euro") {
+        currencyName.innerHTML = "Euro"
+        currencyImage.src = "./assets/euro-logo.png"
+
+    }
+
+    convertValues()
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+currencySelect.addEventListener("change", currencyChange)
 convertButton.addEventListener("click", convertValues)
 
 
